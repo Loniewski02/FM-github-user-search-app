@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./dist/img/icons/favicon-32x32.png">
+  <link rel="stylesheet" href="./dist/css/style.min.css">
+
+  <title>Frontend Mentor | GitHub user search app</title>
+</head>
+
+<body>
+
+  <main class="main">
+    <section class="app">
+      <div class="wrapper">
+        <div class="app__nav">
+          <h1 class="app__nav-title">devfinder</h1>
+          <p class="app__nav-mode">dark <img src="./dist/img/icons/icon-moon.svg" alt=""></p>
+        </div>
+
+        <div class="app__search">
+          <img src="./dist/img/icons/icon-search.svg" alt="" class="app__search-ico">
+          <input type="text" class="app__search-input" placeholder="Search GitHub username...">
+          <button class="app__search-btn">Search</button>
+        </div>
+
+        <div class="app__main">
+          <div class="app__main-user">
+            <img src="./dist/img/icons/favicon-32x32.png" alt="">
+            <div class="app__main-user-info">
+              <h2 class="app__main-user-username">The Octocat</h2>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="app__main-user-userlink">@actocat</a>
+              <p class="app__main-user-joined">Joined 25 Jan 2011</p>
+            </div>
+          </div>
+
+          <p class="app__main-description">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
+          </p>
+
+          <div class="app__main-boxes">
+            <div class="app__main-box">
+              <p class="app__main-box-title">Repos</p>
+              <p class="app__main-box-number">8</p>
+            </div>
+            <div class="app__main-box">
+              <p class="app__main-box-title">Followers</p>
+              <p class="app__main-box-number">3938</p>
+            </div>
+            <div class="app__main-box">
+              <p class="app__main-box-title">Following</p>
+              <p class="app__main-box-number">9</p>
+            </div>
+          </div>
+
+          <div class="app__main-links">
+            <ul class="app__main-links-list">
+              <li>
+                <img src="./dist/img/icons/icon-location.svg" alt="">
+                San Francisco
+              </li>
+              <li>
+                <img src="./dist/img/icons/icon-website.svg" alt="">
+                https://github.blog
+              </li>
+              <li>
+                <img src="./dist/img/icons/icon-twitter.svg" alt="">
+                Not Available
+              </li>
+              <li>
+                <img src="./dist/img/icons/icon-company.svg" alt="">
+                @github
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="./dist/js/main.min.js"></script>
+</body>
+
+</html>

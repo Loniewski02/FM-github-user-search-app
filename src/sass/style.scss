@@ -1,0 +1,167 @@
+@use './colors' as *;
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	min-height: 100vh;
+	font-family: 'Space Mono', monospace;
+	background-color: $very-light-graylish-blue;
+	font-size: 1.6rem;
+}
+
+.wrapper {
+	margin: 0 auto;
+	max-width: 1111px;
+	width: 100%;
+}
+
+.app {
+	padding: 2em 1.5em;
+	&__nav {
+		display: flex;
+		justify-content: space-between;
+
+		&-title {
+			font-size: 2.6rem;
+		}
+
+		&-mode {
+			display: flex;
+			align-items: center;
+			font-size: 1.3rem;
+			color: $dark-graylish-blue;
+			font-weight: bold;
+			text-transform: uppercase;
+			letter-spacing: 2.5px;
+			cursor: pointer;
+
+			img {
+				margin-left: 1.2em;
+			}
+		}
+	}
+
+	&__search {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 2.3em;
+		padding: 0.4em 0.4em 0.4em 1em;
+		border-radius: 15px;
+		background-color: $white;
+
+		&-ico {
+			height: 20px;
+		}
+
+		&-input {
+			margin: 0 0.5em;
+			width: 100%;
+			font-size: 1.3rem;
+			border: 2px solid transparent;
+			background-color: transparent;
+
+			&::placeholder {
+				font-family: 'Space Mono', monospace;
+				color: $dark-graylish-blue;
+				letter-spacing: 0;
+			}
+		}
+
+		&-btn {
+			padding: 0.9em 1.1em 0.9em 1.4em;
+			font-family: inherit;
+			color: $white;
+			border: 2px solid transparent;
+			border-radius: 10px;
+			background-color: $blue;
+			cursor: pointer;
+		}
+	}
+
+	&__main {
+		margin-top: 1em;
+		padding: 2em 1.5em;
+		border-radius: 15px;
+		background-color: $white;
+
+		&-user {
+			display: flex;
+
+			img {
+				margin-right: 1.2em;
+				height: 70px;
+				width: 70px;
+			}
+
+			&-username {
+				color: $dark-gray;
+				font-size: 1.6rem;
+			}
+
+			&-userlink {
+				text-decoration: none;
+				color: $blue;
+				font-size: 1.3rem;
+			}
+
+			&-joined {
+				font-size: 1.3rem;
+				color: $graylish-blue;
+			}
+		}
+
+		&-description {
+			margin-top: 2.5em;
+			color: $graylish-blue;
+			font-size: 1.3rem;
+			line-height: 25px;
+		}
+
+		&-boxes {
+			margin-top: 1.4em;
+			padding: 1.1em 0;
+			display: flex;
+			justify-content: space-evenly;
+			border-radius: 10px;
+			background-color: $very-light-graylish-blue;
+		}
+
+		&-box {
+			text-align: center;
+			&-title {
+				font-size: 1.1rem;
+				color: $graylish-blue;
+			}
+
+			&-number {
+				margin-top: 0.5em;
+				font-size: 1.6rem;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+@media (min-width: 556px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1440px) {
+}
