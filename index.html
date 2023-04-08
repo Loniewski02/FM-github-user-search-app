@@ -21,7 +21,7 @@
       <div class="wrapper">
         <div class="app__nav">
           <h1 class="app__nav-title">devfinder</h1>
-          <p class="app__nav-mode">dark <img src="./dist/img/icons/icon-moon.svg" alt=""></p>
+          <button class="app__nav-mode">dark <img src="./dist/img/icons/icon-moon.svg" alt=""></button>
         </div>
 
         <div class="app__search">
@@ -60,24 +60,22 @@
           </div>
 
           <div class="app__main-links">
-            <ul class="app__main-links-list">
-              <li>
-                <img src="./dist/img/icons/icon-location.svg" alt="">
-                San Francisco
-              </li>
-              <li>
-                <img src="./dist/img/icons/icon-website.svg" alt="">
-                https://github.blog
-              </li>
-              <li>
-                <img src="./dist/img/icons/icon-twitter.svg" alt="">
-                Not Available
-              </li>
-              <li>
-                <img src="./dist/img/icons/icon-company.svg" alt="">
-                @github
-              </li>
-            </ul>
+            <div class="app__main-links-box">
+              <img src="./dist/img/icons/icon-location.svg" alt="">
+              <a href="#">San Francisco</a>
+            </div>
+            <div class="app__main-links-box">
+              <img src="./dist/img/icons/icon-website.svg" alt="">
+              <a href="#">https://github.blog</a>
+            </div>
+            <div class="app__main-links-box app__main-links-box--disabled">
+              <img src="./dist/img/icons/icon-twitter.svg" alt="">
+              <a href="#">Not Available</a>
+            </div>
+            <div class="app__main-links-box">
+              <img src="./dist/img/icons/icon-company.svg" alt="">
+              <a href="#">@github</a>
+            </div>
           </div>
         </div>
       </div>
