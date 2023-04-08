@@ -13,6 +13,9 @@ html {
 }
 
 body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	min-height: 100vh;
 	font-family: 'Space Mono', monospace;
 	background-color: $very-light-graylish-blue;
@@ -30,6 +33,10 @@ body {
 
 			&-mode {
 				color: $white;
+
+				&:hover {
+					color: $graylish-blue-hover;
+				}
 			}
 		}
 
@@ -73,6 +80,35 @@ body {
 					color: $white;
 				}
 			}
+
+			&-links {
+				&-box {
+					color: $white;
+
+					a {
+						color: $white;
+
+						&:hover {
+							border-bottom: 1px solid $white;
+						}
+					}
+
+					&--disabled {
+						svg {
+							color: #c0c8e4;
+						}
+
+						a {
+							color: #c0c8e4;
+							transition: none;
+							cursor: default;
+							&:hover {
+								border: none;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -108,9 +144,17 @@ body {
 			cursor: pointer;
 			transition: color 0.3s;
 
-			img {
-				fill: green;
+			&:hover {
+				color: $black;
+			}
+
+			svg {
+				display: none;
 				margin-left: 1.2em;
+			}
+
+			svg.active {
+				display: block;
 			}
 		}
 	}
@@ -173,6 +217,7 @@ body {
 				margin-right: 1.2em;
 				height: 70px;
 				width: 70px;
+				border-radius: 50%;
 			}
 
 			&-username {
@@ -230,6 +275,7 @@ body {
 				align-items: center;
 				gap: 1em;
 				margin-bottom: 1em;
+				color: $dark-graylish-blue;
 
 				&:nth-child(odd) {
 					gap: 1.4em;
@@ -237,13 +283,28 @@ body {
 
 				a {
 					text-decoration: none;
-					color: $dark-graylish-blue;
 					font-size: 1.3rem;
+					color: $dark-graylish-blue;
 					border-bottom: 1px solid transparent;
 					transition: border 0.3s;
 
 					&:hover {
 						border-bottom: 1px solid $dark-graylish-blue;
+					}
+				}
+
+				&--disabled {
+					svg {
+						color: #c0c8e4;
+					}
+
+					a {
+						color: #c0c8e4;
+						transition: none;
+						cursor: default;
+						&:hover {
+							border: none;
+						}
 					}
 				}
 			}
@@ -253,7 +314,8 @@ body {
 
 @media (min-width: 768px) {
 	.wrapper {
-		max-width: 600px;
+		min-width: 570px;
+		max-width: 570px;
 	}
 
 	.app {
@@ -266,7 +328,7 @@ body {
 			}
 
 			&-input {
-				padding: 0.9em 0;
+				padding: 0.8em 0;
 				font-size: 1.8rem;
 			}
 
@@ -333,12 +395,6 @@ body {
 				margin-top: 2em;
 
 				&-box {
-					&--disabled {
-						a {
-							color: #9b9fac;
-						}
-					}
-
 					&:nth-child(odd) {
 						gap: 1em;
 					}
@@ -375,6 +431,7 @@ body {
 
 @media (min-width: 992px) {
 	.wrapper {
+		min-width: 730px;
 		max-width: 730px;
 	}
 
