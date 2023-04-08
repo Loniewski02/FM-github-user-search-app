@@ -9,6 +9,8 @@ const userFullName = document.querySelector('.app__main-user-username');
 const userLogin = document.querySelector('.app__main-user-userlink');
 const userBio = document.querySelector('.app__main-description');
 
+const errorInfo = document.querySelector('.error-info');
+
 const userLocation = document.querySelector('.app__main-links-location');
 const userJoined = document.querySelector('.app__main-user-joined span');
 const userWebsite = document.querySelector('.app__main-links-website');
@@ -29,104 +31,83 @@ const getUser = inp => {
 	prevUserInp = userInp;
 
 	fetch(`https://api.github.com/users/${userInp}`)
-		.then(res => {
-			if (res.ok) {
-				return res.json();
-			} else {
-				throw new Error('Network response was not ok.');
-			}
-		})
+		.then(res => res.json())
 		.then(data => {
-			const createdAccDate = new Date(data.created_at);
-			userAvatar.setAttribute('src', data.avatar_url);
-
-			if (data.bio === null) {
-				userBio.textContent = 'This profile has no bio';
+			if (data.message === 'Not Found') {
+				errorInfo.style.display = 'block';
 			} else {
-				userBio.textContent = data.bio;
+				errorInfo.style.display = 'none';
+
+				updateUserProfile(data);
 			}
-			
-			userLogin.textContent = data.login;
-
-			check(userFullName, data.name);
-			check(userTwitter, data.twitter_username);
-			check(userLocation, data.location);
-			check(userCompany, data.company);
-			check(userWebsite, data.blog);
-			userWebsite.setAttribute('href', data.blog);
-
-			userJoined.textContent = createdAccDate.toDateString().slice(4);
-
-			userRepos.textContent = data.public_repos;
-			userFollowers.textContent = data.followers;
-			userFollowing.textContent = data.following;
-
-			prevData = {
-				avatar_url: data.avatar_url,
-				bio: data.bio,
-				name: data.name,
-				login: data.login,
-				twitter_username: data.twitter_username,
-				location: data.location,
-				company: data.company,
-				blog: data.blog,
-				public_repos: data.public_repos,
-				followers: data.followers,
-				following: data.following,
-			};
 		})
 		.catch(err => {
 			console.error('Error:', err);
-			userAvatar.setAttribute('src', prevData.avatar_url);
-			userBio.textContent = prevData.bio;
-			userFullName.textContent = prevData.name;
-			userLogin.textContent = prevData.login;
-			check(userFullName, prevData.name);
-			check(userTwitter, prevData.twitter_username);
-			check(userLocation, prevData.location);
-			check(userCompany, prevData.company);
-			check(userWebsite, prevData.blog);
-			userWebsite.setAttribute('href', prevData.blog);
-			userJoined.textContent = '';
-			userRepos.textContent = prevData.public_repos;
-			userFollowers.textContent = prevData.followers;
-			userFollowing.textContent = prevData.following;
+			restoreUserProfile();
 		});
 };
 
-// const getUser = inp => {
-// 	const userInp = inp.value;
-// 	fetch(`https://api.github.com/users/${userInp}`)
-// 		.then(res => res.json())
-// 		.then(data => {
-// 			console.log(data);
-// 			const createdAccDate = new Date(data.created_at);
-// 			userAvatar.setAttribute('src', data.avatar_url);
+const updateUserProfile = data => {
+	const createdAccDate = new Date(data.created_at);
+	userAvatar.setAttribute('src', data.avatar_url);
 
-// 			if (data.bio === null) {
-// 				userBio.textContent = 'This profile has no bio';
-// 			} else {
-// 				userBio.textContent = data.bio;
-// 			}
+	if (data.bio === null) {
+		userBio.textContent = 'This profile has no bio';
+	} else {
+		userBio.textContent = data.bio;
+	}
 
-// 			userFullName.textContent = data.name;
-// 			userLogin.textContent = data.login;
+	handleUserLogin(userLogin, data.login);
+	check(userFullName, data.name);
+	check(userTwitter, data.twitter_username);
+	check(userLocation, data.location);
+	check(userCompany, data.company);
+	check(userWebsite, data.blog);
+	userWebsite.setAttribute('href', data.blog);
 
-// 			check(userFullName, data.name);
-// 			check(userTwitter, data.twitter_username);
-// 			check(userLocation, data.location);
-// 			check(userCompany, data.company);
-// 			check(userWebsite, data.blog);
-// 			userWebsite.setAttribute('href', data.blog);
+	userJoined.textContent = createdAccDate.toDateString().slice(4);
 
-// 			userJoined.textContent = createdAccDate.toDateString().slice(4);
+	userRepos.textContent = data.public_repos;
+	userFollowers.textContent = data.followers;
+	userFollowing.textContent = data.following;
 
-// 			userRepos.textContent = data.public_repos;
-// 			userFollowers.textContent = data.followers;
-// 			userFollowing.textContent = data.following;
-// 		})
-// 		.catch(err => console.error('Error:', err));
-// };
+	prevData = {
+		avatar_url: data.avatar_url,
+		bio: data.bio,
+		name: data.name,
+		login: data.login,
+		twitter_username: data.twitter_username,
+		location: data.location,
+		company: data.company,
+		blog: data.blog,
+		public_repos: data.public_repos,
+		followers: data.followers,
+		following: data.following,
+	};
+};
+
+const restoreUserProfile = () => {
+	userAvatar.setAttribute('src', prevData.avatar_url);
+	userBio.textContent = prevData.bio;
+	userFullName.textContent = prevData.name;
+	userLogin.textContent = prevData.login;
+	check(userFullName, prevData.name);
+	check(userTwitter, prevData.twitter_username);
+	check(userLocation, prevData.location);
+	check(userCompany, prevData.company);
+	check(userWebsite, prevData.blog);
+	userWebsite.setAttribute('href', prevData.blog);
+	userJoined.textContent = '';
+	userRepos.textContent = prevData.public_repos;
+	userFollowers.textContent = prevData.followers;
+	userFollowing.textContent = prevData.following;
+};
+
+const handleUserLogin = (element, userData) => {
+	console.log(element);
+	element.textContent = `@${userData}`;
+	element.setAttribute('href', `https://github.com/${userData}`);
+};
 
 const check = (element, userData) => {
 	if (!userData) {
@@ -134,8 +115,13 @@ const check = (element, userData) => {
 		element.parentElement.classList.add('app__main-links-box--disabled');
 	} else {
 		element.textContent = userData;
+		element.parentElement.classList.remove('app__main-links-box--disabled');
 	}
 };
+
+input.value = 'octocat';
+getUser(input);
+input.value = '';
 
 input.addEventListener('keyup', e => {
 	if (e.key === 'Enter') {

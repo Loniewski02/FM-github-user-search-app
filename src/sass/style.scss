@@ -119,8 +119,20 @@ body {
 	width: 100%;
 }
 
+.error-info {
+	color: #f74646;
+	font-weight: bold;
+	font-size: 1.5rem;
+
+	&--mobile {
+		margin-top: 2em;
+		text-align: right;
+	}
+}
+
 .app {
 	padding: 2em 1.5em;
+
 	&__nav {
 		display: flex;
 		justify-content: space-between;
@@ -160,6 +172,7 @@ body {
 	}
 
 	&__search {
+		position: relative;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -167,6 +180,14 @@ body {
 		padding: 0.4em 0.4em 0.4em 1em;
 		border-radius: 15px;
 		background-color: $white;
+
+		.error-info {
+			position: absolute;
+			right: 3%;
+			top: -35%;
+			display: none;
+			font-size: 1.3rem;
+		}
 
 		&-ico {
 			height: 20px;
@@ -436,6 +457,20 @@ body {
 	}
 
 	.app {
+		&__search {
+			.error-info {
+				font-size: 1.5rem;
+				position: absolute;
+				right: 20%;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			&-input {
+				margin-right: 8.5em;
+			}
+		}
+
 		&__main {
 			display: grid;
 			grid-template-columns: 117px auto;
