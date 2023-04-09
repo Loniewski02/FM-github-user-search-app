@@ -22,6 +22,13 @@ body {
 	font-size: 1.6rem;
 }
 
+@mixin elementsFocusStyles {
+	&:focus {
+		outline: none;
+		border-bottom: 2px dashed $blue;
+	}
+}
+
 .dark-mode {
 	background-color: $black;
 
@@ -35,7 +42,7 @@ body {
 				color: $white;
 
 				&:hover {
-					color: $graylish-blue-hover;
+					color: $graylish-blue;
 				}
 			}
 		}
@@ -49,6 +56,12 @@ body {
 
 			&-input::placeholder {
 				color: $white;
+			}
+
+			&-btn {
+				&:focus {
+					border: 2px dashed $white;
+				}
 			}
 		}
 
@@ -155,6 +168,11 @@ body {
 			background-color: transparent;
 			cursor: pointer;
 			transition: color 0.3s;
+			@include elementsFocusStyles;
+
+			&:focus {
+				border-radius: 0;
+			}
 
 			&:hover {
 				color: $black;
@@ -195,7 +213,7 @@ body {
 
 		&-input {
 			margin: 0 0.5em;
-			padding: 1em 0;
+			padding: 0.8em 0;
 			width: 100%;
 			font-size: 1.3rem;
 			border: 2px solid transparent;
@@ -207,6 +225,11 @@ body {
 				color: $dark-graylish-blue;
 				letter-spacing: 0;
 			}
+
+			&:focus {
+				outline: none;
+				border: 2px dashed $blue;
+			}
 		}
 
 		&-btn {
@@ -217,10 +240,15 @@ body {
 			border-radius: 10px;
 			background-color: $blue;
 			cursor: pointer;
-			transition: background-color 0.3s;
+			transition: opacity 0.3s;
+
+			&:focus {
+				outline: none;
+				border: 2px dashed $black;
+			}
 
 			&:hover {
-				background-color: #60abff;
+				opacity: 0.7;
 			}
 		}
 	}
@@ -250,6 +278,7 @@ body {
 				text-decoration: none;
 				color: $blue;
 				font-size: 1.3rem;
+				@include elementsFocusStyles;
 			}
 
 			&-joined {
@@ -291,6 +320,19 @@ body {
 		&-links {
 			margin-top: 1.5em;
 
+			&-link {
+				text-decoration: none;
+				font-size: 1.3rem;
+				color: $dark-graylish-blue;
+				border-bottom: 1px solid transparent;
+				transition: border 0.3s;
+				@include elementsFocusStyles;
+
+				&:hover {
+					border-bottom: 1px solid $dark-graylish-blue;
+				}
+			}
+
 			&-box {
 				display: flex;
 				align-items: center;
@@ -302,24 +344,12 @@ body {
 					gap: 1.4em;
 				}
 
-				a {
-					text-decoration: none;
-					font-size: 1.3rem;
-					color: $dark-graylish-blue;
-					border-bottom: 1px solid transparent;
-					transition: border 0.3s;
-
-					&:hover {
-						border-bottom: 1px solid $dark-graylish-blue;
-					}
-				}
-
 				&--disabled {
 					svg {
 						color: #c0c8e4;
 					}
 
-					a {
+					.app__main-links-link {
 						color: #c0c8e4;
 						transition: none;
 						cursor: default;
