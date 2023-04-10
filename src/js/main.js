@@ -74,6 +74,7 @@ const updateUserProfile = data => {
 	} else {
 		userBio.textContent = data.bio;
 	}
+	console.log(data);
 
 	handleUserLogin(userLogin, data.login);
 	check(userFullName, data.name);
