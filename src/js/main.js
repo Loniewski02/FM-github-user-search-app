@@ -1,5 +1,7 @@
 const modeBtn = document.querySelector('.app__nav-mode');
-const modeIco = document.querySelectorAll('.app__nav-mode svg');
+const sunIco = document.querySelector('.sun-ico');
+const moonIco = document.querySelector('.moon-ico');
+const modeBtnText = document.querySelector('.mode-btn-text');
 const input = document.querySelector('.app__search-input');
 const searchBtn = document.querySelector('.app__search-btn');
 const body = document.querySelector('body');
@@ -22,6 +24,22 @@ const userFollowing = document.querySelector('.app__main-box-number--following')
 
 let prevUserInp = '';
 let prevData = {};
+
+const checkPreferedColorScheme = () => {
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		body.classList.add('dark-mode');
+		moonIco.classList.remove('active');
+		sunIco.classList.add('active');
+		modeBtnText.innerHTML = 'Light';
+	} else {
+		body.classList.add('light-mode');
+		sunIco.classList.remove('active');
+		moonIco.classList.add('active');
+		modeBtnText.innerHTML = 'Dark';
+	}
+};
+
+checkPreferedColorScheme();
 
 const getUser = inp => {
 	const userInp = inp.value;
@@ -104,7 +122,6 @@ const restoreUserProfile = () => {
 };
 
 const handleUserLogin = (element, userData) => {
-	console.log(element);
 	element.textContent = `@${userData}`;
 	element.setAttribute('href', `https://github.com/${userData}`);
 };
@@ -134,8 +151,17 @@ searchBtn.addEventListener('click', () => {
 });
 
 modeBtn.addEventListener('click', () => {
-	body.classList.toggle('dark-mode');
-	modeIco.forEach(icon => {
-		icon.classList.toggle('active');
-	});
+	if (body.classList.contains('dark-mode')) {
+		body.classList.remove('dark-mode');
+		body.classList.add('light-mode');
+		moonIco.classList.add('active');
+		sunIco.classList.remove('active');
+		modeBtnText.innerHTML = 'dark';
+	} else {
+		body.classList.remove('light-mode');
+		body.classList.add('dark-mode');
+		sunIco.classList.add('active');
+		moonIco.classList.remove('active');
+		modeBtnText.innerHTML = 'light';
+	}
 });

@@ -1,0 +1,187 @@
+@media (prefers-color-scheme: dark) {
+	.dark-mode {
+		background-color: $black;
+
+		.app {
+			&__nav {
+				&-title {
+					color: $white;
+				}
+
+				&-mode {
+					color: $white;
+
+					&:hover {
+						color: $graylish-blue;
+					}
+				}
+			}
+
+			&__search {
+				background-color: $very-dark-graylish-blue;
+
+				&-input {
+					color: $white;
+				}
+
+				&-input::placeholder {
+					color: $white;
+				}
+
+				&-btn {
+					&:focus {
+						border: 2px dashed $white;
+					}
+				}
+			}
+
+			&__main {
+				background-color: $very-dark-graylish-blue;
+
+				&-user-username {
+					color: $white;
+				}
+
+				&-user-joined {
+					color: $white;
+				}
+
+				&-description {
+					color: $white;
+				}
+
+				&-boxes {
+					background-color: $black;
+				}
+
+				&-box {
+					&-title {
+						color: $white;
+					}
+
+					&-number {
+						color: $white;
+					}
+				}
+
+				&-links {
+					&-box {
+						color: $white;
+
+						a {
+							color: $white;
+
+							&:hover {
+								border-bottom: 1px solid $white;
+							}
+						}
+
+						&--disabled {
+							svg {
+								color: #c0c8e4;
+							}
+
+							a {
+								color: #c0c8e4;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.light-mode {
+		background-color: $very-light-graylish-blue;
+
+		.app {
+			&__nav {
+				&-title {
+					color: $black;
+				}
+
+				&-mode {
+					color: $dark-graylish-blue;
+
+					&:hover {
+						color: $black;
+					}
+				}
+			}
+
+			&__search {
+				background-color: $white;
+
+				&-input {
+					color: $black;
+				}
+
+				&-input::placeholder {
+					color: $dark-graylish-blue;
+				}
+
+				&-btn {
+					&:focus {
+						border: 2px dashed $black;
+					}
+				}
+			}
+
+			&__main {
+				background-color: $white;
+
+				&-user-username {
+					color: $black;
+				}
+
+				&-user-joined {
+					color: $graylish-blue;
+				}
+
+				&-description {
+					color: $dark-graylish-blue;
+				}
+
+				&-boxes {
+					background-color: $very-light-graylish-blue;
+				}
+
+				&-box {
+					&-title {
+						color: $dark-graylish-blue;
+					}
+
+					&-number {
+						color: $black;
+					}
+				}
+
+				&-links {
+					&-box {
+						color: $dark-graylish-blue;
+
+						a {
+							color: $dark-graylish-blue;
+
+							&:hover {
+								border-bottom: 1px solid $dark-graylish-blue;
+							}
+						}
+
+						&--disabled {
+							svg {
+								color: #c0c8e4;
+							}
+
+							a {
+								color: #c0c8e4;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

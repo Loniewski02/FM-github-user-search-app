@@ -29,103 +29,6 @@ body {
 	}
 }
 
-.dark-mode {
-	background-color: $black;
-
-	.app {
-		&__nav {
-			&-title {
-				color: $white;
-			}
-
-			&-mode {
-				color: $white;
-
-				&:hover {
-					color: $graylish-blue;
-				}
-			}
-		}
-
-		&__search {
-			background-color: $very-dark-graylish-blue;
-
-			&-input {
-				color: $white;
-			}
-
-			&-input::placeholder {
-				color: $white;
-			}
-
-			&-btn {
-				&:focus {
-					border: 2px dashed $white;
-				}
-			}
-		}
-
-		&__main {
-			background-color: $very-dark-graylish-blue;
-
-			&-user-username {
-				color: $white;
-			}
-
-			&-user-joined {
-				color: $white;
-			}
-
-			&-description {
-				color: $white;
-			}
-
-			&-boxes {
-				background-color: $black;
-			}
-
-			&-box {
-				&-title {
-					color: $white;
-				}
-
-				&-number {
-					color: $white;
-				}
-			}
-
-			&-links {
-				&-box {
-					color: $white;
-
-					a {
-						color: $white;
-
-						&:hover {
-							border-bottom: 1px solid $white;
-						}
-					}
-
-					&--disabled {
-						svg {
-							color: #c0c8e4;
-						}
-
-						a {
-							color: #c0c8e4;
-							transition: none;
-							cursor: default;
-							&:hover {
-								border: none;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
 .wrapper {
 	margin: 0 auto;
 	max-width: 1111px;
@@ -158,6 +61,7 @@ body {
 		&-mode {
 			display: flex;
 			align-items: center;
+			font-family: inherit;
 			font-size: 1.3rem;
 			color: $dark-graylish-blue;
 			font-weight: bold;
@@ -557,3 +461,5 @@ body {
 		}
 	}
 }
+
+@import './preferedColorsScheme';
