@@ -157,7 +157,7 @@ modeBtn.addEventListener('click', () => {
 		moonIco.classList.add('active');
 		sunIco.classList.remove('active');
 		modeBtnText.innerHTML = 'dark';
-	} else {
+	} else if (body.classList.contains('light-mode')) {
 		body.classList.remove('light-mode');
 		body.classList.add('dark-mode');
 		sunIco.classList.add('active');
