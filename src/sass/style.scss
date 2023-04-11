@@ -126,7 +126,7 @@ body {
 			cursor: pointer;
 
 			&::placeholder {
-				font-family: 'Space Mono', monospace;
+				font-family: inherit;
 				color: $dark-graylish-blue;
 				letter-spacing: 0;
 			}
