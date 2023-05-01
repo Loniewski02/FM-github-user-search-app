@@ -25,6 +25,8 @@ const userFollowing = document.querySelector('.app__main-box-number--following')
 let prevUserInp = '';
 let prevData = {};
 
+const URL = 'https://api.github.com/users/';
+
 const checkPreferedColorScheme = () => {
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 		body.classList.add('dark-mode');
@@ -41,29 +43,29 @@ const checkPreferedColorScheme = () => {
 
 checkPreferedColorScheme();
 
-const getUser = inp => {
+async function getUser(inp) {
 	const userInp = inp.value;
 	if (userInp === prevUserInp) {
 		return;
 	}
 	prevUserInp = userInp;
+	const completeURL = URL + userInp;
 
-	fetch(`https://api.github.com/users/${userInp}`)
-		.then(res => res.json())
-		.then(data => {
-			if (data.message === 'Not Found') {
-				errorInfo.style.display = 'block';
-			} else {
-				errorInfo.style.display = 'none';
+	try {
+		const response = await axios.get(completeURL);
+		const data = response.data;
 
-				updateUserProfile(data);
-			}
-		})
-		.catch(err => {
-			console.error('Error:', err);
-			restoreUserProfile();
-		});
-};
+		if (data.message === 'Not Found') {
+			errorInfo.style.display = 'block';
+		} else {
+			errorInfo.style.display = 'none';
+			updateUserProfile(data);
+		}
+	} catch (error) {
+		console.error('Error:', error);
+		restoreUserProfile();
+	}
+}
 
 const updateUserProfile = data => {
 	const createdAccDate = new Date(data.created_at);
@@ -74,7 +76,6 @@ const updateUserProfile = data => {
 	} else {
 		userBio.textContent = data.bio;
 	}
-	console.log(data);
 
 	handleUserLogin(userLogin, data.login);
 	check(userFullName, data.name);
