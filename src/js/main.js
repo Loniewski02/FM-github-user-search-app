@@ -84,25 +84,28 @@ const updateUserProfile = data => {
 	check(userCompany, data.company);
 	check(userWebsite, data.blog);
 	userWebsite.setAttribute('href', data.blog);
-
 	userJoined.textContent = createdAccDate.toDateString().slice(4);
-
 	userRepos.textContent = data.public_repos;
 	userFollowers.textContent = data.followers;
 	userFollowing.textContent = data.following;
 
+	saveData();
+};
+
+const saveData = () => {
 	prevData = {
-		avatar_url: data.avatar_url,
-		bio: data.bio,
-		name: data.name,
-		login: data.login,
-		twitter_username: data.twitter_username,
-		location: data.location,
-		company: data.company,
-		blog: data.blog,
-		public_repos: data.public_repos,
-		followers: data.followers,
-		following: data.following,
+		avatar_url: userAvatar.getAttribute('src'),
+		bio: userBio.textContent,
+		joined: userJoined.textContent,
+		name: userFullName.textContent,
+		login: userLogin.textContent,
+		twitter_username: userTwitter.textContent,
+		location: userLocation.textContent,
+		company: userCompany.textContent,
+		blog: userWebsite.textContent,
+		public_repos: userRepos.textContent,
+		followers: userFollowers.textContent,
+		following: userFollowing.textContent,
 	};
 };
 
@@ -117,7 +120,7 @@ const restoreUserProfile = () => {
 	check(userCompany, prevData.company);
 	check(userWebsite, prevData.blog);
 	userWebsite.setAttribute('href', prevData.blog);
-	userJoined.textContent = '';
+	userJoined.textContent = prevData.joined;
 	userRepos.textContent = prevData.public_repos;
 	userFollowers.textContent = prevData.followers;
 	userFollowing.textContent = prevData.following;

@@ -18,6 +18,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
+	width: 100%;
 	font-family: 'Space Mono', monospace;
 	background-color: $very-light-graylish-blue;
 	font-size: 1.6rem;
@@ -30,12 +31,6 @@ body {
 	}
 }
 
-.wrapper {
-	margin: 0 auto;
-	max-width: 1111px;
-	width: 100%;
-}
-
 .error-info {
 	color: #f74646;
 	font-weight: bold;
@@ -45,6 +40,11 @@ body {
 		margin-top: 2em;
 		text-align: right;
 	}
+}
+
+.wrapper {
+	width: 100%;
+	max-width: 400px;
 }
 
 .app {
@@ -270,7 +270,6 @@ body {
 
 @media (min-width: 768px) {
 	.wrapper {
-		min-width: 570px;
 		max-width: 570px;
 	}
 
@@ -387,7 +386,6 @@ body {
 
 @media (min-width: 992px) {
 	.wrapper {
-		min-width: 730px;
 		max-width: 730px;
 	}
 
