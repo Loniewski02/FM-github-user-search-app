@@ -18,10 +18,10 @@ body {
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-	width: 100%;
 	font-family: 'Space Mono', monospace;
 	background-color: $very-light-graylish-blue;
 	font-size: 1.6rem;
+	transition: background-color 0.3s;
 }
 
 @mixin elementsFocusStyles {
@@ -42,13 +42,11 @@ body {
 	}
 }
 
-.wrapper {
-	width: 100%;
-	max-width: 400px;
-}
-
 .app {
 	padding: 2em 1.5em;
+	width: 100%;
+	max-width: 400px;
+	overflow: hidden;
 
 	&__nav {
 		display: flex;
@@ -103,6 +101,7 @@ body {
 		padding: 0.4em 0.4em 0.4em 1em;
 		border-radius: 15px;
 		background-color: $white;
+		transition: background-color 0.3s;
 
 		.error-info {
 			position: absolute;
@@ -163,11 +162,13 @@ body {
 		padding: 2em 1.5em;
 		border-radius: 15px;
 		background-color: $white;
+		transition: background-color 0.3s;
 
 		&-user {
 			display: flex;
 
 			img {
+				display: block;
 				margin-right: 1.2em;
 				height: 70px;
 				width: 70px;
@@ -180,6 +181,7 @@ body {
 			}
 
 			&-userlink {
+				width: max-content;
 				text-decoration: none;
 				color: $blue;
 				font-size: 1.3rem;
@@ -206,6 +208,7 @@ body {
 			justify-content: space-evenly;
 			border-radius: 10px;
 			background-color: $very-light-graylish-blue;
+			transition: background-color 0.3s;
 		}
 
 		&-box {
@@ -269,11 +272,9 @@ body {
 }
 
 @media (min-width: 768px) {
-	.wrapper {
-		max-width: 570px;
-	}
-
 	.app {
+		max-width: 570px;
+
 		&__search {
 			padding: 0.4em 0.4em 0.4em 1.8em;
 
@@ -385,11 +386,9 @@ body {
 }
 
 @media (min-width: 992px) {
-	.wrapper {
-		max-width: 730px;
-	}
-
 	.app {
+		max-width: 760px;
+
 		&__search {
 			.error-info {
 				font-size: 1.5rem;
@@ -443,7 +442,7 @@ body {
 
 			&-description {
 				grid-column: 2/3;
-				margin-top: -2.4em;
+				margin-top: -0.5em;
 			}
 
 			&-boxes {
