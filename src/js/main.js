@@ -141,7 +141,7 @@ const check = (element, userData) => {
 	}
 };
 
-input.value = 'octocat';
+input.value = 'Loniewski02';
 getUser(input);
 input.value = '';
 
