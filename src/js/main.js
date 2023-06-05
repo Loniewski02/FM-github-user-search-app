@@ -13,11 +13,11 @@ const userBio = document.querySelector('.app__main-description');
 
 const errorInfo = document.querySelector('.error-info');
 
-const userLocation = document.querySelector('.app__main-links-location');
+const userLocation = document.querySelector('.app__main-links-link--location');
 const userJoined = document.querySelector('.app__main-user-joined span');
-const userWebsite = document.querySelector('.app__main-links-website');
-const userTwitter = document.querySelector('.app__main-links-twitter');
-const userCompany = document.querySelector('.app__main-links-company');
+const userWebsite = document.querySelector('.app__main-links-link--website');
+const userTwitter = document.querySelector('.app__main-links-link--twitter');
+const userCompany = document.querySelector('.app__main-links-link--company');
 const userRepos = document.querySelector('.app__main-box-number--repos');
 const userFollowers = document.querySelector('.app__main-box-number--followers');
 const userFollowing = document.querySelector('.app__main-box-number--following');
@@ -61,6 +61,7 @@ async function getUser(inp) {
 			errorInfo.style.display = 'none';
 			updateUserProfile(data);
 		}
+		console.log(data);
 	} catch (error) {
 		console.error('Error:', error);
 		restoreUserProfile();

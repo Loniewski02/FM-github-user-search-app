@@ -239,6 +239,14 @@ body {
 				&:hover {
 					border-bottom: 1px solid $dark-graylish-blue;
 				}
+
+				&--location {
+					cursor: default;
+
+					&:hover {
+						border-bottom: 2px solid red;
+					}
+				}
 			}
 
 			&-box {

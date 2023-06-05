@@ -69,11 +69,15 @@
 				&-box {
 					color: $dark-graylish-blue;
 
-					a {
+					.app__main-links-link {
 						color: $dark-graylish-blue;
 
 						&:hover {
 							border-bottom: 1px solid $dark-graylish-blue;
+						}
+
+						&--location:hover {
+							border-bottom: 1px solid transparent;
 						}
 					}
 
@@ -82,8 +86,11 @@
 							color: #c0c8e4;
 						}
 
-						a {
+						.app__main-links-link {
 							color: #c0c8e4;
+							&:hover {
+								border-bottom: 1px solid transparent;
+							}
 						}
 					}
 				}
@@ -161,11 +168,15 @@
 				&-box {
 					color: $white;
 
-					a {
+					.app__main-links-link {
 						color: $white;
 
 						&:hover {
 							border-bottom: 1px solid $white;
+						}
+
+						&--location:hover {
+							border-bottom: 1px solid transparent;
 						}
 					}
 
@@ -174,8 +185,11 @@
 							color: #c0c8e4;
 						}
 
-						a {
+						.app__main-links-link {
 							color: #c0c8e4;
+							&:hover {
+								border-bottom: 1px solid transparent;
+							}
 						}
 					}
 				}
