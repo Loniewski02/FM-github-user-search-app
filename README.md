@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Code](https://github.com/Loniewski02/FM-github-user-search-app)
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/html-sass-js-github-search-app-mo1xlzxvCy)
 - Live Site URL: [Live](https://loniewski02.github.io/FM-github-user-search-app/)
 
 ## My process
