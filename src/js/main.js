@@ -68,7 +68,7 @@ async function getUser(inp) {
 	}
 }
 
-const updateUserProfile = data => {
+const updateUserProfile = (data) => {
 	const createdAccDate = new Date(data.created_at);
 	userAvatar.setAttribute('src', data.avatar_url);
 
@@ -137,7 +137,7 @@ const check = (element, userData) => {
 		element.textContent = 'Not Available';
 		element.parentElement.classList.add('app__main-links-box--disabled');
 	} else {
-		element.textContent = userData;
+		userData.length > 20 ? (element.textContent = userData.slice(8, 29) + '...') : (element.textContent = userData);
 		element.parentElement.classList.remove('app__main-links-box--disabled');
 	}
 };
@@ -146,7 +146,7 @@ input.value = 'Loniewski02';
 getUser(input);
 input.value = '';
 
-input.addEventListener('keyup', e => {
+input.addEventListener('keyup', (e) => {
 	if (e.key === 'Enter') {
 		getUser(input);
 	}
